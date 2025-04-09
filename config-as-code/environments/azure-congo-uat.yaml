@@ -75,7 +75,7 @@ cluster-configs:
         egov-idgen: "http://egov-idgen:8080/"
         egov-otp: "http://egov-otp:8080/"
         egov-common-workflows: "http://egov-common-workflows:8080/"
-        egov-mdms-service: "http://egov-mdms-service:8080/"
+        egov-mdms-service: "http://mdms-v2:8080/"
         mdms-v2: "http://mdms-v2:8080/"
         egov-mdms-service-test: "http://egov-mdms-service-test:8080/"
         egov-mdms-create: "http://egov-mdms-create:8080/"
@@ -162,6 +162,10 @@ cluster-configs:
         project-factory: 'http://project-factory.egov:8080/'
         plan-service: 'http://plan-service.egov:8080/'
         census-service: 'http://census-service.egov:8080/'
+        health-muster-roll: 'http://health-muster-roll.egov:8080/'
+        health-expense-calculator: 'http://health-expense-calculator.egov:8080/'
+        health-expense: 'http://health-expense.egov:8080/'
+
     hcm-moz-impl:
       data:
         dhis2-host: "http://3.110.80.35:8080"
@@ -183,6 +187,14 @@ employee:
 #      <script src=https://unpkg.com/@egovernments/telemetry@0.0.2/dist/egov-telemetry-1557467338.js type=text/javascript></script>
 #      <script src=https://congo-hcm-uat.s3.ap-south-1.amazonaws.com/globalConfig.js type=text/javascript></script>
 #      ';"
+
+payments-ui:
+  custom-js-injection: |
+    sub_filter.conf: "
+      sub_filter  '<head>' '<head>
+      <script src=https://digituiassets.blob.core.windows.net/trainingassets/analytics/analytics.js type=text/javascript></script>      
+      <script src=https://digituiassets.blob.core.windows.net/trainingassets/globalConfigsPayments.js type=text/javascript></script>
+      ';"
 
 workbench-ui:
   custom-js-injection: |
@@ -392,6 +404,50 @@ attendance-service:
   attendance-register-open-search-enabled-roles: "SUPERUSER,SYSTEM_ADMINISTRATOR"
   organisation-contact-details-update-topic: organisation.contact.details.update
   contracts-revision-topic: "contracts-revision"
+
+health-expense:
+  tracing-enabled: true
+  java-enable-debug: true
+  business-workflow-status-map: "{'EXPENSE.WAGES':'false'}"
+  expense-billing-default-offset: 0
+  expense-billing-default-limit: 100
+  expense-billing-search-max-limit: 200
+  spring-kafka-producer-properties-max-request-size: "10485760"
+  egov-mdms-v2-search-endpoint: "/mdms-v2/v1/_search"
+
+health-expense-calculator:
+  tracing-enabled: true
+  java-enable-debug: true
+  egov-mdms-service-endpoint-key: "/mdms-v2/v1/_search"
+  report-header-title: "Health Campaign Payment Report"
+  is-attendance-approval-required: "true"
+  register-batch-size: 15
+  bill-generation-async-enabled: "true"
+  bill-generation-async-topic: "bill-generation-async-topic"
+
+health-muster-roll:
+  tracing-enabled: true
+  java-enable-debug: true
+  musterroll-default-offset: 0
+  musterroll-default-limit: 100
+  musterroll-search-max-limit: 200
+  musterroll-workflow-business-service: "HCMMUSTERROLL"
+  attendance-log-search-endpoint: "attendance/log/v1/_search"
+  attendance-register-search-endpoint: "attendance/v1/_search"
+  attendance-register-update-endpoint: "attendance/v1/_update"
+  attendance-register-search-limit: 100
+  individual-search-endpoint: "individual/v1/_search"
+  expense-calculator-endpoint: "health-expense-calculator/v1/_estimate"
+  muster-restricted-search-roles: "PLACEHOLDER_ROLE"
+  notification-sms-enabled: "false"
+  musterroll-update-recompute-attendance-enabled: "false"
+  musterroll-individual-entry-roles-enabled: "false"
+  musterroll-validate-start-date-monday-enabled: "false"
+  musterroll-add-bank-account-details-enabled: "false"
+  musterroll-update-attendance-register-review-status-enabled: "true"
+  musterroll-workflow-enabled: "true"
+  musterroll-set-default-duration-enabled: "false"
+  musterroll-validate-attendance-register-enabled: "true"
 
 egov-workflow-v2:
   logging-level: "DEBUG"
@@ -627,3 +683,15 @@ hcm-moz-impl:
       memory: "2Gi"
 health-attendance:
   java-enable-debug: true
+  heap: "-Xmx256m -Xms256m"
+  memory_limits: 512Mi
+  egov-mdms-service-host-key: 'mdms-v2'
+  egov-mdms-service-endpoint-key: "/mdms-v2/v1/_search"
+
+pdf-service:
+  initContainers:
+    gitSync:
+      repo: "git@github.com:HCM-CONGO/health-campaign-config"    
+      branch: "QA"   
+  data-config-urls: "file:///work-dir/health-campaign-config/pdf-service/data-config/health-bill-payment.json"
+  format-config-urls: "file:///work-dir/health-campaign-config/pdf-service/format-config/health-bill-payment.json"
