@@ -76,7 +76,7 @@ modules:
       - egovio/facility:v1.1.2-3f860f8a31-23
       - egovio/product:v1.1.0-00a7accbda-31
       - egovio/individual:HDDF-2588-Individual-39e5741a15-30
-      - egovio/transformer:congo-changes-d222d680fa-334
+      - egovio/transformer:congo-changes-ed8b401524-341
       - egovio/stock:v1.1.3-3f860f8a31-44
       - egovio/household:HCMPRE-1254-Comunity-household-8064857b8c-36
       - egovio/project:HDDF-1638-55ba2879f5-26
