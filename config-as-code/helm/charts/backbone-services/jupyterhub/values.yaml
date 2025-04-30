@@ -652,11 +652,11 @@ prePuller:
 ingress:
   enabled: true
   hosts:
-    - salama.digit.org
+    - congo-hcm-uat.digit.org
   tls:
     - hosts:
-        - salama.digit.org
-      secretName: salama.digit.org-tls-certs
+        - congo-hcm-uat.digit.org
+      secretName: congo-hcm-uat.digit.org-tls-certs
   annotations: {}
   ingressClassName: nginx
   pathSuffix: hub

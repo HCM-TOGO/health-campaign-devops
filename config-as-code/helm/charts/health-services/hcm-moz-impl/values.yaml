@@ -431,7 +431,7 @@ env: |
   - name: EGOV_BOUNDARY_LOCALIZATION_MODULE
     value: rainmaker-boundary-admin
   - name: EGOV_BOUNDARY_LOCALIZATION_LOCALE
-    value: pt_MZ
+    value: fr_CG
   - name: EGOV_LOCALIZATION_HOST
     valueFrom:
       configMapKeyRef:
