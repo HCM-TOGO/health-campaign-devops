@@ -672,15 +672,15 @@ transformer:
   java-enable-debug: true
 hcm-moz-impl:
   replicas: 1
-  heap: "-Xmx1024m -Xms1024m"
-  memory_limits: "2Gi"
-  startDate: "28/08/2023"
-  endDate: "22/09/2023"
+  heap: "-Xmx2048m -Xms2048m"
+  memory_limits: "3Gi"
+  startDate: "30/04/2025"
+  endDate: "30/05/2025"
   resources:
     requests:
-      memory: "2Gi"
+      memory: "3Gi"
     limits:
-      memory: "2Gi"
+      memory: "3Gi"
 health-attendance:
   java-enable-debug: true
   heap: "-Xmx256m -Xms256m"

@@ -31,8 +31,8 @@ heap: "-Xmx192m -Xms192m"
 java-args: ""
 java-enable-debug: true
 persist-yml-path: "file:///work-dir/health-campaign-config/egov-persister/hcm-moz-impl-persister.yml"
-startDate: "28/08/2023"
-endDate: "02/09/2023"
+startDate: "30/04/2025"
+endDate: "30/05/2025"
 
 # Additional Container Envs
 env: |
@@ -203,9 +203,9 @@ env: |
   - name: EGOV_DHIS2_ORGANISATION_UNIT_PROVINCES
     value: "SOFALA,NAMPULA"
   - name: EGOV_PROJECT_TYPE_ID
-    value: 644c4356-5214-11ee-be56-0242ac120002
+    value: dbd45c31-de9e-4e62-a9b6-abb818928fd1
   - name: EGOV_PROJECT_TYPE
-    value: MR-DN
+    value: LLIN-cg
   - name: EGOV_FACILITY_HOST
     valueFrom:
       configMapKeyRef:
@@ -259,7 +259,7 @@ env: |
   - name: EGOV_PROJECT_RESOURCE_UPDATE_PATH
     value: /project/resource/v1/bulk/_update
   - name: EGOV_SERVICE_REQUEST_PROJECTCODE
-    value: SMCMozambique
+    value: LLIN-cg
   - name: EGOV_HOUSEHOLD_HOST
     valueFrom:
       configMapKeyRef:
@@ -336,9 +336,9 @@ env: |
   - name: EGOV_STOCK_UPDATE_PATH
     value: /stock/v1/bulk/_update
   - name: EGOV_BOUNDARY_NAME
-    value: MOZAMBIQUE
+    value: RepublicOfCongo
   - name: EGOV_BOUNDARY_CODE
-    value: mz
+    value: cg
   - name: EGOV_MDMS_CREATE_HOST
     valueFrom:
       configMapKeyRef:
@@ -353,7 +353,7 @@ env: |
   - name: EGOV_HRMS_SEARCH_ENDPOINT
     value: /egov-hrms/employees/_search
   - name: EGOV_BOUNDARY_ROOT_LABEL
-    value: Country
+    value: Pays
   - name: EGOV_BOUNDARY_MASTER_NAME
     value: TenantBoundary
   - name: EGOV_BOUNDARY_MODULE_NAME
@@ -445,10 +445,38 @@ env: |
         name: egov-service-host
         key: egov-localization
   - name: EGOV_ATTENDANCE_SESSIONS
-    value: 1
+    value: '1'
   - name: EGOV_ATTENDANCE_HOST
     valueFrom:
       configMapKeyRef:
         name: egov-service-host
         key: attendance-service        
-  
+    - name: EGOV_BOUNDARY_HIERARCHY_TYPE
+    valueFrom:
+      configMapKeyRef:
+        name: egov-config
+        key: boundary-hierarchy
+  - name: EGOV_BOUNDARYV2_HOST
+    valueFrom:
+      configMapKeyRef:
+        name: egov-service-host
+        key: boundary-service
+  - name: EGOV_MDMSV2_HOST
+    valueFrom:
+      configMapKeyRef:
+        name: egov-service-host
+        key: mdms-v2
+  - name: EGOV_BOUNDARY_LOCALIZATION_MODULE
+    value: rainmaker-boundary-admin
+  - name: EGOV_BOUNDARY_LOCALIZATION_LOCALE
+    value: fr_CG
+  - name: EGOV_LOCALIZATION_HOST
+    valueFrom:
+      configMapKeyRef:
+        name: egov-service-host
+        key: egov-localization
+  - name: EGOV_BOUNDARY_LOCALIZATION_PREFIX
+  - name: EGOV_INGESTION_INTERVAL_MIN_DATE
+    value: "1737552887000"
+  - name: EGOV_INGESTION_INTERVAL_MAX_DATE
+    value: "1757639287000"
