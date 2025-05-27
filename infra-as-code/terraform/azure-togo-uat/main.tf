@@ -120,25 +120,25 @@ module "postgres-db" {
   virtual_network_id        = azurerm_virtual_network.example.id
 }
 
-# module "es-master" {
-#   source = "../modules/storage/azure"
-#   environment = "${var.environment}"
-#   itemCount = "3"
-#   disk_prefix = "es-master"
-#   location = "${var.location}"
-#   resource_group = "${module.kubernetes.node_resource_group}"
-#   storage_sku = "Premium_LRS"
-#   disk_size_gb = "10"
+module "es-master" {
+  source = "../modules/storage/azure"
+  environment = "${var.environment}"
+  itemCount = "3"
+  disk_prefix = "es-master"
+  location = "${var.location}"
+  resource_group = "${module.kubernetes.node_resource_group}"
+  storage_sku = "Premium_LRS"
+  disk_size_gb = "10"
 
-# }
-# module "es-data" {
-#   source = "../modules/storage/azure"
-#   environment = "${var.environment}"
-#   itemCount = "3"
-#   disk_prefix = "es-data"
-#   location = "${var.location}"
-#   resource_group = "${module.kubernetes.node_resource_group}"
-#   storage_sku = "Premium_LRS"
-#   disk_size_gb = "100"
+}
+module "es-data" {
+  source = "../modules/storage/azure"
+  environment = "${var.environment}"
+  itemCount = "3"
+  disk_prefix = "es-data"
+  location = "${var.location}"
+  resource_group = "${module.kubernetes.node_resource_group}"
+  storage_sku = "Premium_LRS"
+  disk_size_gb = "100"
 
-# }
+}

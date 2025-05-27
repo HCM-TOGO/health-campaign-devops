@@ -18,10 +18,10 @@ output "cluster_name" {
   value = var.environment
 }
 
-# output "es-master" {
-#   value= module.es-master.storage_ids
-# }
+output "es-master" {
+  value= module.es-master.storage_ids
+}
 
-# output "es-data" {
-#   value= module.es-data.storage_ids
-# }
+output "es-data" {
+  value= module.es-data.storage_ids
+}
