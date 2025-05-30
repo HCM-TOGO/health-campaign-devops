@@ -9,8 +9,8 @@ modules:
       - redis
   - name: authn-authz
     services:
-      - redis
-#      - ingress-nginx
+      # - redis
+      - ingress-nginx
       - cert-manager
       - zuul:master-moz-impel-ratelimiter-1760f3be7b-1
   - name: core

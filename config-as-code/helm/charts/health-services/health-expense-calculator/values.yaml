@@ -19,10 +19,12 @@ initContainers:
     schemaTable: "expense_calculator_schema"
     image:
       repository: "health-expense-calculator-db"
+      tag: "HDDF-2572-2-8b5aaa872-67"
 
 # Container Configs
 image:
   repository: "health-expense-calculator"
+  tag: "HDDF-2572-2-8b5aaa872-67"
 replicas: "1"
 healthChecks:
   enabled: true

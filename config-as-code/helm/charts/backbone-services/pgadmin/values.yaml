@@ -24,8 +24,8 @@ image:
 replicas: "1"
 httpPort: 8080
 serverBasePath: "/pgadmin"
-dbUrl: "egov-dev-db.ctm6jbmr5mnj.ap-south-1.rds.amazonaws.com"
-environment: "DEV"
+dbUrl: "azure-togo-uat-server.postgres.database.azure.com"
+environment: "UAT"
 maintenance-db-name: "postgres"           
 
 # Additional Container Envs
