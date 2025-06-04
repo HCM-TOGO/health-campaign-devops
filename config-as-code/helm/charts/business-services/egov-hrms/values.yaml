@@ -140,9 +140,9 @@ env: |
   - name: EGOV_INDIVIDUAL_DELETE_ENDPOINT
     value: "/individual/v1/_delete"
   - name: EGOV_HRMS_MIN_MOBILE_NUMBER
-    value: "100000000"
-  - name: EGOV_HRMS_MIN_MOBILE_NUMBER
-    value: "999999999"
+    value: "10000000"
+  - name: EGOV_HRMS_MAX_MOBILE_NUMBER
+    value: "99999999"
   - name: EGOV_BOUNDARY_HOST
     valueFrom:
       configMapKeyRef:
