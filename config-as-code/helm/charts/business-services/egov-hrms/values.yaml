@@ -16,10 +16,12 @@ initContainers:
     schemaTable: "egov_hrms_schema"
     image:
       repository: "egov-hrms-db"
+      tag: "HDDF-2588-db2470d2f7-41"
 
 # Container Configs
 image:
   repository: "egov-hrms"
+  tag: "HDDF-2588-db2470d2f7-41"
 replicas: "1"
 healthChecks:
   enabled: true
