@@ -652,11 +652,11 @@ prePuller:
 ingress:
   enabled: true
   hosts:
-    - congo-hcm-uat.digit.org
+    - alafiatogo-hcm.digit.org
   tls:
     - hosts:
-        - congo-hcm-uat.digit.org
-      secretName: congo-hcm-uat.digit.org-tls-certs
+        - alafiatogo-hcm.digit.org
+      secretName: alafiatogo-hcm.digit.org-tls-certs
   annotations: {}
   ingressClassName: nginx
   pathSuffix: hub

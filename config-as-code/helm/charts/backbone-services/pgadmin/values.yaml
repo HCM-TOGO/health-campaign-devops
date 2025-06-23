@@ -27,7 +27,7 @@ image:
 
 replicas: "1"
 httpPort: "8080"
-dbUrl: "azure-togo-uat-server.postgres.database.azure.com"
+dbUrl: "azure-togo-prod-server.postgres.database.azure.com"
 dbPort: "5432"
 dbWriteUser: "read"
 dbReadUser: "write"
