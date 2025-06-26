@@ -1,5 +1,5 @@
 global:
-  domain: congo-hcm-uat.digit.org
+  domain: alafiatogo-hcm.digit.org
   setup: fullsetup
 
 cluster-configs:
@@ -13,15 +13,15 @@ cluster-configs:
     egov-config:
       namespace: [egov, monitoring]
       data:
-        db-host: "azure-congo-uat-server.postgres.database.azure.com" ## Add db-host name eg: egov-demo.database.azure.com
-        db-name: "azure-congo-uat-db" ## Add db-name
-        db-url: "jdbc:postgresql://azure-congo-uat-server.postgres.database.azure.com:5432/azure-congo-uat-db" ## example: jdbc:postgresql://egov-demo.postgres.database.azure.com:5432/egov_demo
-        domain: "congo-hcm-uat.digit.org" ## Add your Domain Name
-        egov-services-fqdn-name: "https://congo-hcm-uat.digit.org/" ## Add your Domain Name
-        aws-cluster-ip: "https://9960086F6DC8DAA2E8261B4E71E82608.gr7.ap-south-1.eks.amazonaws.com"
-        aws-region: "ap-south-1"
-        aws-cluster-name: "arn:aws:eks:ap-south-1:680148267093:cluster/congo-hcm-uat"
-        egov-state-level-tenant-id: "cg"
+        db-host: "azure-togo-prod-server.postgres.database.azure.com" ## Add db-host name eg: egov-demo.database.azure.com
+        db-name: "azure-togo-prod-db" ## Add db-name
+        db-url: "jdbc:postgresql://azure-togo-prod-server.postgres.database.azure.com:5432/azure-togo-prod-db" ## example: jdbc:postgresql://egov-demo.postgres.database.azure.com:5432/egov_demo
+        domain: "alafiatogo-hcm.digit.org" ## Add your Domain Name
+        egov-services-fqdn-name: "https://alafiatogo-hcm.digit.org/" ## Add your Domain Name
+        # aws-cluster-ip: "https://9960086F6DC8DAA2E8261B4E71E82608.gr7.ap-south-1.eks.amazonaws.com"
+        # aws-region: "ap-south-1"
+        # aws-cluster-name: "arn:aws:eks:ap-south-1:680148267093:cluster/togo-hcm-prod"
+        egov-state-level-tenant-id: "tg"
         s3-assets-bucket: "(pg-health-egov-assets|egov-health-playground-assets)"
         es-host: "elasticsearch-data.es-cluster-v8"
         es-indexer-host: "https://elasticsearch-data.es-cluster-v8:9200/"
@@ -177,7 +177,7 @@ employee:
     sub_filter.conf: "
       sub_filter  '<head>' '<head>
       <script src=https://unpkg.com/@egovernments/telemetry@0.0.2/dist/egov-telemetry-1557467338.js type=text/javascript></script>
-      <script src=https://congo-hcm-uat.s3.ap-south-1.amazonaws.com/globalConfig.js type=text/javascript></script>
+      <script src=https://togo-hcm-prod.s3.ap-south-1.amazonaws.com/globalConfig.js type=text/javascript></script>
       ';"
 
 #citizen:
@@ -185,7 +185,7 @@ employee:
 #    sub_filter.conf: "
 #      sub_filter  '<head>' '<head>
 #      <script src=https://unpkg.com/@egovernments/telemetry@0.0.2/dist/egov-telemetry-1557467338.js type=text/javascript></script>
-#      <script src=https://congo-hcm-uat.s3.ap-south-1.amazonaws.com/globalConfig.js type=text/javascript></script>
+#      <script src=https://togo-hcm-prod.s3.ap-south-1.amazonaws.com/globalConfig.js type=text/javascript></script>
 #      ';"
 
 payments-ui:
@@ -264,14 +264,14 @@ egov-user:
   citizen-registration-withlogin: "true"
   citizen-otp-fixed: "123456"
   citizen-otp-fixed-enabled: "true"
-  egov-state-level-tenant-id: "cg"
+  egov-state-level-tenant-id: "tg"
   decryption-abac-enabled: "false"
 
 audit-service:
-  persist-yml-path: "https://raw.githubusercontent.com/HCM-CONGO/health-campaign-config/QA/egov-persister/egov-workflow-v2-persister.yml,https://raw.githubusercontent.com/HCM-CONGO/health-campaign-config/QA/egov-persister/facility-persister.yml,https://raw.githubusercontent.com/HCM-CONGO/health-campaign-config/QA/egov-persister/hcm-moz-impl-persister.yml,https://raw.githubusercontent.com/HCM-CONGO/health-campaign-config/QA/egov-persister/household-persister.yml,https://raw.githubusercontent.com/HCM-CONGO/health-campaign-config/QA/egov-persister/hrms-employee-persister.yml,https://raw.githubusercontent.com/HCM-CONGO/health-campaign-config/QA/egov-persister/individual-persister.yml,https://raw.githubusercontent.com/HCM-CONGO/health-campaign-config/QA/egov-persister/stock-persister.yml,https://raw.githubusercontent.com/HCM-CONGO/health-campaign-config/QA/egov-persister/service-request-persister.yml,https://raw.githubusercontent.com/HCM-CONGO/health-campaign-config/QA/egov-persister/project-task-persister.yml,https://raw.githubusercontent.com/HCM-CONGO/health-campaign-config/QA/egov-persister/project-persister.yml,https://raw.githubusercontent.com/HCM-CONGO/health-campaign-config/QA/egov-persister/product-persister.yml"
+  persist-yml-path: "https://raw.githubusercontent.com/HCM-togo/health-campaign-config/QA/egov-persister/egov-workflow-v2-persister.yml,https://raw.githubusercontent.com/HCM-togo/health-campaign-config/QA/egov-persister/facility-persister.yml,https://raw.githubusercontent.com/HCM-togo/health-campaign-config/QA/egov-persister/hcm-moz-impl-persister.yml,https://raw.githubusercontent.com/HCM-togo/health-campaign-config/QA/egov-persister/household-persister.yml,https://raw.githubusercontent.com/HCM-togo/health-campaign-config/QA/egov-persister/hrms-employee-persister.yml,https://raw.githubusercontent.com/HCM-togo/health-campaign-config/QA/egov-persister/individual-persister.yml,https://raw.githubusercontent.com/HCM-togo/health-campaign-config/QA/egov-persister/stock-persister.yml,https://raw.githubusercontent.com/HCM-togo/health-campaign-config/QA/egov-persister/service-request-persister.yml,https://raw.githubusercontent.com/HCM-togo/health-campaign-config/QA/egov-persister/project-task-persister.yml,https://raw.githubusercontent.com/HCM-togo/health-campaign-config/QA/egov-persister/project-persister.yml,https://raw.githubusercontent.com/HCM-togo/health-campaign-config/QA/egov-persister/product-persister.yml"
   initContainers:
     gitSync:
-      repo: "git@github.com:HCM-CONGO/health-campaign-config"
+      repo: "git@github.com:HCM-togo/health-campaign-config"
       branch: "QA"
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -289,7 +289,7 @@ audit-service:
 #  mdms-path: "/work-dir/health-campaign-mdms/data"
 #  initContainers:
 #    gitSync:
-#      repo: "git@github.com:HCM-CONGO/health-campaign-mdms"   ##### Change repo url with Your fork Repo url
+#      repo: "git@github.com:HCM-togo/health-campaign-mdms"   ##### Change repo url with Your fork Repo url
 #      branch: "QA"                                        ##### Change repo branch with Your fork Repo branch
 #  mdms-folder: "health-campaign-mdms"
 #  masters-config-url: "file:///work-dir/health-campaign-mdms/master-config.json"
@@ -304,7 +304,7 @@ egov-mdms-create:
   mdms-path: "/work-dir/health-campaign-mdms/data"
   initContainers:
     gitSync:
-      repo: "git@github.com:HCM-CONGO/health-campaign-mdms"   ##### Change repo url with Your fork Repo url
+      repo: "git@github.com:HCM-togo/health-campaign-mdms"   ##### Change repo url with Your fork Repo url
       branch: "QA"                                        ##### Change repo branch with Your fork Repo branch
   mdms-folder: "health-campaign-mdms"
   masters-config-url: "file:///work-dir/health-campaign-mdms/master-config.json"
@@ -317,7 +317,7 @@ egov-indexer:
   memory_limits: "768Mi"
   initContainers:
     gitSync:
-      repo: "git@github.com:HCM-CONGO/health-campaign-config"        ##### Change repo url with Your fork Repo url
+      repo: "git@github.com:HCM-togo/health-campaign-config"        ##### Change repo url with Your fork Repo url
       branch: "QA"                                      ##### Change repo branch with Your fork Repo branch
   egov-indexer-yaml-repo-path: "file:///work-dir/health-campaign-config/egov-indexer/transformer-pgr-services.yml,file:///work-dir/health-campaign-config/egov-indexer/error-queue.yml,file:///work-dir/health-campaign-config/egov-indexer/product-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/project-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/individual-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/household-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/project-task-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/stock-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/facility-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/project-staff-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/egov-error-queue-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/pgr-services.yml,file:///work-dir/health-campaign-config/egov-indexer/service-request-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/referral-management-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/attendance-service-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/plan-service-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/census-service-indexer.yml"
 
@@ -328,27 +328,27 @@ egov-persister:
   persist-yml-path: "file:///work-dir/health-campaign-config/egov-persister/audit-service-persister.yml,file:///work-dir/health-campaign-config/egov-persister/egov-user-event-persister.yml,file:///work-dir/health-campaign-config/egov-persister/egov-workflow-v2-persister.yml,file:///work-dir/health-campaign-config/egov-persister/hrms-employee-persister.yml,file:///work-dir/health-campaign-config/egov-persister/pdf-generator.yml,file:///work-dir/health-campaign-config/egov-persister/product-persister.yml,file:///work-dir/health-campaign-config/egov-persister/project-persister.yml,file:///work-dir/health-campaign-config/egov-persister/individual-persister.yml,file:///work-dir/health-campaign-config/egov-persister/household-persister.yml,file:///work-dir/health-campaign-config/egov-persister/project-task-persister.yml,file:///work-dir/health-campaign-config/egov-persister/stock-persister.yml,file:///work-dir/health-campaign-config/egov-persister/facility-persister.yml,file:///work-dir/health-campaign-config/egov-persister/service-request-persister.yml,file:///work-dir/health-campaign-config/egov-persister/pgr-services-persister.yml,file:///work-dir/health-campaign-config/egov-persister/hcm-moz-impl-persister.yml,file:///work-dir/health-campaign-config/egov-persister/mdms-persister.yml,file:///work-dir/health-campaign-config/egov-persister/referral-management-persister.yml,file:///work-dir/health-campaign-config/egov-persister/attendance-service-persister.yml,file:///work-dir/health-campaign-config/egov-persister/boundary-persister.yml,file:///work-dir/health-campaign-config/egov-persister/irs-persister.yml,file:///work-dir/health-campaign-config/egov-persister/project-factory-persister.yml,file:///work-dir/health-campaign-config/egov-persister/plan-service-persister.yml,file:///work-dir/health-campaign-config/egov-persister/census-service-persister.yml"
   initContainers:
     gitSync:
-      repo: "git@github.com:HCM-CONGO/health-campaign-config"      ##### Change repo url with Your fork Repo url
+      repo: "git@github.com:HCM-togo/health-campaign-config"      ##### Change repo url with Your fork Repo url
       branch: "QA"                                    ##### Change repo branch with Your fork Repo branch
 
 #egov-data-uploader:
 #  initContainers:
 #    gitSync:
-#      repo: "git@github.com:HCM-CONGO/health-campaign-config"      ##### Change repo url with Your fork Repo url
+#      repo: "git@github.com:HCM-togo/health-campaign-config"      ##### Change repo url with Your fork Repo url
 #      branch: "QA"                                    ##### Change repo branch with Your fork Repo branch
 
 #egov-searcher:
 #  search-yaml-path: ""
 #  initContainers:
 #    gitSync:
-#      repo: "git@github.com:HCM-CONGO/health-campaign-config"     ##### Change repo url with Your fork Repo url
+#      repo: "git@github.com:HCM-togo/health-campaign-config"     ##### Change repo url with Your fork Repo url
 #      branch: "QA"                                   ##### Change repo branch with Your fork Repo branch
 
 dashboard-analytics:
   config-schema-paths: "file:///work-dir/health-campaign-config/egov-dss-dashboards/dashboard-analytics/*.json"
   initContainers:
     gitSync:
-      repo: "git@github.com:HCM-CONGO/health-campaign-config"      ##### Change repo url with Your fork Repo url
+      repo: "git@github.com:HCM-togo/health-campaign-config"      ##### Change repo url with Your fork Repo url
       branch: "QA"                                    ##### Change repo branch with Your fork Repo branch
   java-enable-debug: true
 
@@ -460,7 +460,7 @@ egov-workflow-v2:
 egov-hrms:
   java-args: -Dspring.profiles.active=monitoring
   heap: "-Xmx512m -Xms512m"
-  employee-applink: "https://congo-hcm-uat.digit.org/employee/user/login"
+  employee-applink: "https://alafiatogo-hcm.digit.org/employee/user/login"
 
 
 egov-weekly-impact-notifier:
@@ -573,11 +573,11 @@ elasticsearch-data:
     enabled: true
     azure:
       - diskName: "es-data-v1-0" ## add diskName
-        diskURI: "/subscriptions/39d8a617-2bd5-45f2-9796-7db5dec51dbb/resourceGroups/MC_azure-congo-uat_azure-congo-uat_southafricanorth/providers/Microsoft.Compute/disks/es-data-0"## Azure diskURI
+        diskURI: "/subscriptions/19026fcf-0fbf-4161-b372-03030cfe66fb/resourceGroups/MC_azure-togo-prod_azure-togo-prod_southafricanorth/providers/Microsoft.Compute/disks/es-data-0"## Azure diskURI
       - diskName: "es-data-v1-1" ## add diskName
-        diskURI: "/subscriptions/39d8a617-2bd5-45f2-9796-7db5dec51dbb/resourceGroups/MC_azure-congo-uat_azure-congo-uat_southafricanorth/providers/Microsoft.Compute/disks/es-data-1"## Azure diskURI
+        diskURI: "/subscriptions/19026fcf-0fbf-4161-b372-03030cfe66fb/resourceGroups/MC_azure-togo-prod_azure-togo-prod_southafricanorth/providers/Microsoft.Compute/disks/es-data-1"## Azure diskURI
       - diskName: "es-data-v1-2"  ## add diskName
-        diskURI: "/subscriptions/39d8a617-2bd5-45f2-9796-7db5dec51dbb/resourceGroups/MC_azure-congo-uat_azure-congo-uat_southafricanorth/providers/Microsoft.Compute/disks/es-data-2"## Azure diskURI
+        diskURI: "/subscriptions/19026fcf-0fbf-4161-b372-03030cfe66fb/resourceGroups/MC_azure-togo-prod_azure-togo-prod_southafricanorth/providers/Microsoft.Compute/disks/es-data-2"## Azure diskURI
 
   esJavaOpts: "-Xmx3g -Xms3g"
   resources:
@@ -595,11 +595,11 @@ elasticsearch-master:
     enabled: true
     azure:
       - diskName: "es-master-0" ## add diskName
-        diskURI: "/subscriptions/39d8a617-2bd5-45f2-9796-7db5dec51dbb/resourceGroups/MC_azure-congo-uat_azure-congo-uat_southafricanorth/providers/Microsoft.Compute/disks/es-master-0"## Azure diskURI
+        diskURI: "/subscriptions/19026fcf-0fbf-4161-b372-03030cfe66fb/resourceGroups/MC_azure-togo-prod_azure-togo-prod_southafricanorth/providers/Microsoft.Compute/disks/es-master-0"## Azure diskURI
       - diskName: "es-master-1" ## add diskName
-        diskURI: "/subscriptions/39d8a617-2bd5-45f2-9796-7db5dec51dbb/resourceGroups/MC_azure-congo-uat_azure-congo-uat_southafricanorth/providers/Microsoft.Compute/disks/es-master-1"## Azure diskURI
+        diskURI: "/subscriptions/19026fcf-0fbf-4161-b372-03030cfe66fb/resourceGroups/MC_azure-togo-prod_azure-togo-prod_southafricanorth/providers/Microsoft.Compute/disks/es-master-1"## Azure diskURI
       - diskName: "es-master-2"  ## add diskName
-        diskURI: "/subscriptions/39d8a617-2bd5-45f2-9796-7db5dec51dbb/resourceGroups/MC_azure-congo-uat_azure-congo-uat_southafricanorth/providers/Microsoft.Compute/disks/es-master-2"## Azure diskURI
+        diskURI: "/subscriptions/19026fcf-0fbf-4161-b372-03030cfe66fb/resourceGroups/MC_azure-togo-prod_azure-togo-prod_southafricanorth/providers/Microsoft.Compute/disks/es-master-2"## Azure diskURI
 
   esJavaOpts: "-Xmx448m -Xms448m"
   resources:
@@ -622,7 +622,7 @@ oauth2-proxy:
   config:
     configFile: |-
       email_domains = [ "*" ]
-      github_org = "HCM-CONGO"
+      github_org = "HCM-togo"
       github_team = "hcm-moz-impl"
       upstreams = [ "file:///dev/null" ]
 
@@ -630,18 +630,18 @@ grafana:
   initContainers:
     gitSync:
       enabled: true
-      repo: "git@github.com:HCM-CONGO/health-campaign-config" #REPLACE with your configs repo
+      repo: "git@github.com:HCM-togo/health-campaign-config" #REPLACE with your configs repo
       branch: "QA" #REPLACE with config repo branch name
   dashboardsFolder: /work-dir/health-campaign-config/monitoring-dashboards
 project:
   replicas: 1
   heap: "-Xmx2g -Xms2g"
   memory_limits: "2Gi"
-  resources:
-    requests:
-      memory: "2Gi"
-    limits:
-      memory: "2Gi"
+  # resources:
+  #   requests:
+  #     memory: "2Gi"
+  #   limits:
+  #     memory: "2Gi"
 project-factory:
   logLevel: 'debug'
   maxDebugChar: '2000'
@@ -664,11 +664,11 @@ transformer:
   replicas: 1
   heap: "-Xmx1536m -Xms1536m"
   memory_limits: "2Gi"
-  resources:
-    requests:
-      memory: "2Gi"
-    limits:
-      memory: "2Gi"
+  # resources:
+  #   requests:
+  #     memory: "2Gi"
+  #   limits:
+  #     memory: "2Gi"
   java-enable-debug: true
 hcm-moz-impl:
   replicas: 1
@@ -676,11 +676,11 @@ hcm-moz-impl:
   memory_limits: "3Gi"
   startDate: "30/04/2025"
   endDate: "30/05/2025"
-  resources:
-    requests:
-      memory: "3Gi"
-    limits:
-      memory: "3Gi"
+  # resources:
+  #   requests:
+  #     memory: "3Gi"
+  #   limits:
+  #     memory: "3Gi"
 health-attendance:
   java-enable-debug: true
   heap: "-Xmx256m -Xms256m"
@@ -691,7 +691,90 @@ health-attendance:
 pdf-service:
   initContainers:
     gitSync:
-      repo: "git@github.com:HCM-CONGO/health-campaign-config"    
+      repo: "git@github.com:HCM-togo/health-campaign-config"    
       branch: "QA"   
   data-config-urls: "file:///work-dir/health-campaign-config/pdf-service/data-config/health-bill-payment.json"
   format-config-urls: "file:///work-dir/health-campaign-config/pdf-service/format-config/health-bill-payment.json"
+
+grafana:
+  # github:
+  #   allowed_organizations: ["HCM-BAUCHI"]
+  #   role_attribute_path: contains(groups[*], '@egovernments/bihar-devops') && 'Editor' || contains(groups[*], '@egovernments/bihar-mgramseva-uat') && 'Viewer'
+# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+### Prometheus & Alertmanager >>>>>>>>>>>>>>>>>>>>
+prometheus:
+  retention: 90d
+  storageSpec:
+    volumeClaimTemplate:
+      spec:
+        storageClassName: default
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 20Gi
+  alertmanager:
+    enabled: true
+  externalLabels:
+    cluster: azure-togo-prod
+  additionalScrapeConfigs:
+    # - job_name: 'nginx-ingress-metrics'
+    #   static_configs:
+    #     - targets: [ 'release-name-ingress-nginx-controller-metrics.backbone:10254' ]
+    - job_name: 'blackbox'
+      metrics_path: /probe
+      params:
+        module: [ http_2xx ]
+      static_configs:
+        - targets:
+            - https://alafiatogo-hcm.digit.org/jupyter/hub/
+            - https://alafiatogo-hcm.digit.org/kibana-upgrade/
+            - https://alafiatogo-hcm.digit.org/pgadmin/
+      relabel_configs:
+        - source_labels: [ __address__ ]
+          target_label: __param_target
+        - source_labels: [ __param_target ]
+          target_label: instance
+        - target_label: __address__
+          replacement: prometheus-blackbox-exporter:9115
+    - job_name: 'blackbox_exporter'
+      static_configs:
+        - targets: [ 'prometheus-blackbox-exporter:9115' ]
+# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+loki:
+  persistence:
+    enabled: true
+    accessModes:
+      - ReadWriteOnce
+    size: 10Gi
+  additionalConfigs:
+    schema_config:
+      configs:
+        - from: 2020-10-24
+          store: boltdb-shipper
+          object_store: azure
+          schema: v11
+          index:
+            prefix: index_
+            period: 24h
+    storage_config:
+      boltdb_shipper:
+        active_index_directory: /data/loki/index
+        cache_location: /data/loki/index_cache
+        shared_store: azure
+        cache_ttl: 24h
+      azure:
+        container_name: loki        # Your Azure Storage Container
+        account_name: tglokisaprd         # Your Azure Storage Account
+        account_key: <ACCOUNT_KEY_FOR_STORAGE_ACCOUNT>              # Or use managed identity
+        use_managed_identity: false
+        request_timeout: 0
+    compactor:
+      working_directory: /data/loki/boltdb-shipper-compactor
+      shared_store: azure
+      retention_enabled: true
+      compaction_interval: 168h
+    table_manager:
+      retention_deletes_enabled: true
+      retention_period: 168h

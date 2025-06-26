@@ -16,6 +16,7 @@ initContainers: {}
 # Container Configs
 image:
   repository: "payments-ui"
+  tag: "console-impel-payment-1d0f3ab65f-81"
 replicas: "1"
 httpPort: 80
 healthChecks:

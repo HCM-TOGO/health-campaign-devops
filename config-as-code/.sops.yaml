@@ -3,5 +3,8 @@ creation_rules:
   # upon creation of a file that matches the pattern *dev.yaml,
   # KMS set A is used
   # eGOV Internal ------------------------------------------------------------------------------------------------------------- #
-  - path_regex: environments/azure-congo-uat-secrets.yaml$
-    azure_keyvault: "https://congo-uat.vault.azure.net/keys/congo-uat/f55657aa499544dc832882c9cb4f3250"
+  - path_regex: environments/azure-togo-uat-secrets.yaml$
+    azure_keyvault: "https://togo-uat.vault.azure.net/keys/togo-uat-master-key/709d143b86f04459aaf492c3d999389e"
+
+  # - path_regex: environments/azure-togo-uat-secrets.yaml$
+  #   age: 'age1trex8q6kc43z0c6vkjm5k9xr77flmlr4ewjqydp2vkhft0jd9v8slzhtg8'

@@ -19,10 +19,12 @@ initContainers:
     schemaTable: "expense_schema"
     image:
       repository: "health-expense-db"
+      tag: "master-impel-expense-2f2007da0-29"
 
 # Container Configs
 image:
   repository: "health-expense"
+  tag: "master-impel-expense-2f2007da0-29"
 replicas: "1"
 healthChecks:
   enabled: true
