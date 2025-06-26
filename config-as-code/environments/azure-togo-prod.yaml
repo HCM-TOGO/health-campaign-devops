@@ -695,3 +695,86 @@ pdf-service:
       branch: "QA"   
   data-config-urls: "file:///work-dir/health-campaign-config/pdf-service/data-config/health-bill-payment.json"
   format-config-urls: "file:///work-dir/health-campaign-config/pdf-service/format-config/health-bill-payment.json"
+
+grafana:
+  # github:
+  #   allowed_organizations: ["HCM-BAUCHI"]
+  #   role_attribute_path: contains(groups[*], '@egovernments/bihar-devops') && 'Editor' || contains(groups[*], '@egovernments/bihar-mgramseva-uat') && 'Viewer'
+# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+### Prometheus & Alertmanager >>>>>>>>>>>>>>>>>>>>
+prometheus:
+  retention: 90d
+  storageSpec:
+    volumeClaimTemplate:
+      spec:
+        storageClassName: default
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 20Gi
+  alertmanager:
+    enabled: true
+  externalLabels:
+    cluster: azure-togo-prod
+  additionalScrapeConfigs:
+    # - job_name: 'nginx-ingress-metrics'
+    #   static_configs:
+    #     - targets: [ 'release-name-ingress-nginx-controller-metrics.backbone:10254' ]
+    - job_name: 'blackbox'
+      metrics_path: /probe
+      params:
+        module: [ http_2xx ]
+      static_configs:
+        - targets:
+            - https://alafiatogo-hcm.digit.org/jupyter/hub/
+            - https://alafiatogo-hcm.digit.org/kibana-upgrade/
+            - https://alafiatogo-hcm.digit.org/pgadmin/
+      relabel_configs:
+        - source_labels: [ __address__ ]
+          target_label: __param_target
+        - source_labels: [ __param_target ]
+          target_label: instance
+        - target_label: __address__
+          replacement: prometheus-blackbox-exporter:9115
+    - job_name: 'blackbox_exporter'
+      static_configs:
+        - targets: [ 'prometheus-blackbox-exporter:9115' ]
+# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+loki:
+  persistence:
+    enabled: true
+    accessModes:
+      - ReadWriteOnce
+    size: 10Gi
+  additionalConfigs:
+    schema_config:
+      configs:
+        - from: 2020-10-24
+          store: boltdb-shipper
+          object_store: azure
+          schema: v11
+          index:
+            prefix: index_
+            period: 24h
+    storage_config:
+      boltdb_shipper:
+        active_index_directory: /data/loki/index
+        cache_location: /data/loki/index_cache
+        shared_store: azure
+        cache_ttl: 24h
+      azure:
+        container_name: loki        # Your Azure Storage Container
+        account_name: tglokisaprd         # Your Azure Storage Account
+        account_key: <ACCOUNT_KEY_FOR_STORAGE_ACCOUNT>              # Or use managed identity
+        use_managed_identity: false
+        request_timeout: 0
+    compactor:
+      working_directory: /data/loki/boltdb-shipper-compactor
+      shared_store: azure
+      retention_enabled: true
+      compaction_interval: 168h
+    table_manager:
+      retention_deletes_enabled: true
+      retention_period: 168h

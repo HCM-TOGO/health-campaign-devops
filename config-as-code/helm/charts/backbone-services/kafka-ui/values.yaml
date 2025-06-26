@@ -24,8 +24,8 @@ existingConfigMap: ""
 yamlApplicationConfig:
   kafka:
     clusters:
-      - name: azure-togo-uat
-        bootstrapServers: release-name-kafka.kafka-cluster:9092
+      - name: azure-togo-prod
+        bootstrapServers: release-name-kafka-controller-0.release-name-kafka-controller-headless.kafka-cluster.svc.cluster.local:9092, release-name-kafka-controller-1.release-name-kafka-controller-headless.kafka-cluster.svc.cluster.local:9092, release-name-kafka-controller-2.release-name-kafka-controller-headless.kafka-cluster.svc.cluster.local:9092
   spring:
     security:
       oauth2:
