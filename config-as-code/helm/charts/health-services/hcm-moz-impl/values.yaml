@@ -203,9 +203,9 @@ env: |
   - name: EGOV_DHIS2_ORGANISATION_UNIT_PROVINCES
     value: "SOFALA,NAMPULA"
   - name: EGOV_PROJECT_TYPE_ID
-    value: dbd45c31-de9e-4e62-a9b6-abb818928fd1
+    value: 644c4356-5214-11ee-be56-0242ac120002
   - name: EGOV_PROJECT_TYPE
-    value: LLIN-cg
+    value: MR-DN
   - name: EGOV_FACILITY_HOST
     valueFrom:
       configMapKeyRef:
@@ -259,7 +259,7 @@ env: |
   - name: EGOV_PROJECT_RESOURCE_UPDATE_PATH
     value: /project/resource/v1/bulk/_update
   - name: EGOV_SERVICE_REQUEST_PROJECTCODE
-    value: LLIN-cg
+    value: SMCTogo
   - name: EGOV_HOUSEHOLD_HOST
     valueFrom:
       configMapKeyRef:
@@ -336,9 +336,9 @@ env: |
   - name: EGOV_STOCK_UPDATE_PATH
     value: /stock/v1/bulk/_update
   - name: EGOV_BOUNDARY_NAME
-    value: RepublicOfCongo
+    value: Togo
   - name: EGOV_BOUNDARY_CODE
-    value: cg
+    value: tg
   - name: EGOV_MDMS_CREATE_HOST
     valueFrom:
       configMapKeyRef:
@@ -353,7 +353,7 @@ env: |
   - name: EGOV_HRMS_SEARCH_ENDPOINT
     value: /egov-hrms/employees/_search
   - name: EGOV_BOUNDARY_ROOT_LABEL
-    value: Pays
+    value: Country
   - name: EGOV_BOUNDARY_MASTER_NAME
     value: TenantBoundary
   - name: EGOV_BOUNDARY_MODULE_NAME
@@ -431,14 +431,12 @@ env: |
   - name: EGOV_BOUNDARY_LOCALIZATION_MODULE
     value: rainmaker-boundary-admin
   - name: EGOV_BOUNDARY_LOCALIZATION_LOCALE
-    value: fr_CG
+    value: fr_TG
   - name: EGOV_LOCALIZATION_HOST
     valueFrom:
       configMapKeyRef:
         name: egov-service-host
         key: egov-localization
-  - name: EGOV_BOUNDARY_LOCALIZATION_PREFIX
-    value: ""
   - name: EGOV_BOUNDARY_LOCALIZATION_HOST
     valueFrom:
       configMapKeyRef:
@@ -450,7 +448,7 @@ env: |
     valueFrom:
       configMapKeyRef:
         name: egov-service-host
-        key: attendance-service        
+        key: attendance-service
     - name: EGOV_BOUNDARY_HIERARCHY_TYPE
     valueFrom:
       configMapKeyRef:
@@ -469,13 +467,12 @@ env: |
   - name: EGOV_BOUNDARY_LOCALIZATION_MODULE
     value: rainmaker-boundary-admin
   - name: EGOV_BOUNDARY_LOCALIZATION_LOCALE
-    value: fr_CG
+    value: fr_TG
   - name: EGOV_LOCALIZATION_HOST
     valueFrom:
       configMapKeyRef:
         name: egov-service-host
         key: egov-localization
-  - name: EGOV_BOUNDARY_LOCALIZATION_PREFIX
   - name: EGOV_INGESTION_INTERVAL_MIN_DATE
     value: "1737552887000"
   - name: EGOV_INGESTION_INTERVAL_MAX_DATE

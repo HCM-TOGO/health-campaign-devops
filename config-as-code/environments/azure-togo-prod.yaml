@@ -18,9 +18,9 @@ cluster-configs:
         db-url: "jdbc:postgresql://azure-togo-prod-server.postgres.database.azure.com:5432/azure-togo-prod-db" ## example: jdbc:postgresql://egov-demo.postgres.database.azure.com:5432/egov_demo
         domain: "alafiatogo-hcm.digit.org" ## Add your Domain Name
         egov-services-fqdn-name: "https://alafiatogo-hcm.digit.org/" ## Add your Domain Name
-        # aws-cluster-ip: "https://9960086F6DC8DAA2E8261B4E71E82608.gr7.ap-south-1.eks.amazonaws.com"
-        # aws-region: "ap-south-1"
-        # aws-cluster-name: "arn:aws:eks:ap-south-1:680148267093:cluster/togo-hcm-prod"
+        aws-cluster-ip: "https://9960086F6DC8DAA2E8261B4E71E82608.gr7.ap-south-1.eks.amazonaws.com"
+        aws-region: "ap-south-1"
+        aws-cluster-name: "arn:aws:eks:ap-south-1:680148267093:cluster/togo-hcm-prod"
         egov-state-level-tenant-id: "tg"
         s3-assets-bucket: "(pg-health-egov-assets|egov-health-playground-assets)"
         es-host: "elasticsearch-data.es-cluster-v8"
@@ -674,8 +674,8 @@ hcm-moz-impl:
   replicas: 1
   heap: "-Xmx2048m -Xms2048m"
   memory_limits: "3Gi"
-  startDate: "30/04/2025"
-  endDate: "30/05/2025"
+  startDate: "26/06/2025"
+  endDate: "02/07/2025"
   # resources:
   #   requests:
   #     memory: "3Gi"
