@@ -155,6 +155,16 @@ env: |
     value: "update-stock-topic"
   - name: TRANSFORMER_PRODUCER_BULK_STOCK_INDEX_V1_TOPIC
     value: "transformer-producer-bulk-stock-index-v1-topic"
+  - name: TRANSFORMER_CONSUMER_STOCK_RECONCILIATION_CREATE_TOPIC
+    value: save-stock-reconciliation-topic
+  - name: TRANSFORMER_CONSUMER_STOCK_RECONCILIATION_UPDATE_TOPIC
+    value: update-stock-reconciliation-topic
+  - name: TRANSFORMER_PRODUCER_STOCK_RECONCILIATION_INDEX_V1_TOPIC
+    value: transformer-producer-stock-recon-index-v1-topic
+  - name: EGOV_LOCALIZATION_MODULE_NAME
+    value: rainmaker-boundary-admin
+  - name: IS_ENVIRONMENT_CENTRAL_INSTANCE
+    value: "false"
   - name: EGOV_FACILITY_HOST
     valueFrom:
       configMapKeyRef:
