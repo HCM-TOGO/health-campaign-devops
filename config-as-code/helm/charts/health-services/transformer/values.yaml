@@ -224,6 +224,14 @@ env: |
     value: "transformer-producer-special-spraying-index-topic"
   - name: SPECIAL_SPRAYING_CHECKLIST_NAME
     value: "SPECIAL_SPRAYING"
+  - name: CHECKLIST_EXTRATRANSFORMATION_NAMES
+    value: ELIGIBLITY_ASSESSMENT,HF_RF_DRUG_SE,HF_RF_FEVER,ZERODOSE_ASSESSMENT,HF_RF_SICK,ZERO_DOSE_ASSESSMENT
+  - name: TRANSFORMER_CHECKLIST_INFO_MDMS_MASTER
+    value: transformerChecklistInfo
+  - name: TRANSFORMER_CHECKLIST_INFO_MDMS_MODULE
+    value: HCM-TRANSFORMER-CHECKLIST-INFO
+  - name: TRANSFORMER_PRODUCER_EXTRA_TRANSFORMED_CHECKLIST_INDEX_V1_TOPIC
+    value: transformer-producer-extra-transformed-checklist-index-topic
   - name: EGOV_HOUSEHOLD_HOST
     valueFrom:
       configMapKeyRef:
