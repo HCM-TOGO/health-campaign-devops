@@ -42,6 +42,14 @@ resource "azurerm_subnet" "aks" {
   address_prefixes     = ["10.0.1.0/24"]
 }
 
+
+resource "azurerm_subnet" "aks2" {
+  name                 = "${var.resource_group}-aks-subnet-new"
+  resource_group_name  = var.resource_group
+  virtual_network_name = azurerm_virtual_network.example.name
+  address_prefixes     = ["10.0.4.0/24"]
+}
+
 resource "azurerm_subnet" "postgres" {
   name                 = "${var.resource_group}-postgres-subnet"
   resource_group_name  = var.resource_group
@@ -109,16 +117,17 @@ module "kubernetes" {
   client_secret             = var.client_secret
   vm_size                   = "Standard_B4ms"
   ssh_public_key            = var.environment
-  node_count                = 4
+  node_count                = 8
   network_security_group_id = azurerm_network_security_group.aks_nsg.id
   subnet_id                 = azurerm_subnet.aks.id
+  subnet_id_new             = azurerm_subnet.aks2.id
 }
 
 module "postgres-db" {
   source                    = "../modules/db/azure"
   resource_group            = var.resource_group
   location                  = var.location
-  sku_tier                  = "B_Standard_B2ms"
+  sku_tier                  = "B_Standard_B8ms"
   storage_mb                = "65536"
   backup_retention_days     = "7"
   administrator_login       = var.db_user
