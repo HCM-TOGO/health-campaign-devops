@@ -155,6 +155,16 @@ env: |
     value: "update-stock-topic"
   - name: TRANSFORMER_PRODUCER_BULK_STOCK_INDEX_V1_TOPIC
     value: "transformer-producer-bulk-stock-index-v1-topic"
+  - name: TRANSFORMER_CONSUMER_STOCK_RECONCILIATION_CREATE_TOPIC
+    value: save-stock-reconciliation-topic
+  - name: TRANSFORMER_CONSUMER_STOCK_RECONCILIATION_UPDATE_TOPIC
+    value: update-stock-reconciliation-topic
+  - name: TRANSFORMER_PRODUCER_STOCK_RECONCILIATION_INDEX_V1_TOPIC
+    value: transformer-producer-stock-recon-index-v1-topic
+  - name: EGOV_LOCALIZATION_MODULE_NAME
+    value: rainmaker-boundary-admin
+  - name: IS_ENVIRONMENT_CENTRAL_INSTANCE
+    value: "false"
   - name: EGOV_FACILITY_HOST
     valueFrom:
       configMapKeyRef:
@@ -224,6 +234,14 @@ env: |
     value: "transformer-producer-special-spraying-index-topic"
   - name: SPECIAL_SPRAYING_CHECKLIST_NAME
     value: "SPECIAL_SPRAYING"
+  - name: CHECKLIST_EXTRATRANSFORMATION_NAMES
+    value: ELIGIBLITY_ASSESSMENT,HF_RF_DRUG_SE,HF_RF_FEVER,ZERODOSE_ASSESSMENT,HF_RF_SICK,ZERO_DOSE_ASSESSMENT
+  - name: TRANSFORMER_CHECKLIST_INFO_MDMS_MASTER
+    value: transformerChecklistInfo
+  - name: TRANSFORMER_CHECKLIST_INFO_MDMS_MODULE
+    value: HCM-TRANSFORMER-CHECKLIST-INFO
+  - name: TRANSFORMER_PRODUCER_EXTRA_TRANSFORMED_CHECKLIST_INDEX_V1_TOPIC
+    value: transformer-producer-extra-transformed-checklist-index-topic
   - name: EGOV_HOUSEHOLD_HOST
     valueFrom:
       configMapKeyRef:

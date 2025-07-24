@@ -1631,7 +1631,7 @@ metrics:
   kafka:
     ## @param metrics.kafka.enabled Whether or not to create a standalone Kafka exporter to expose Kafka metrics
     ##
-    enabled: false
+    enabled: true
     ## Bitnami Kafka exporter image
     ## ref: https://hub.docker.com/r/bitnami/kafka-exporter/tags/
     ## @param metrics.kafka.image.registry [default: REGISTRY_NAME] Kafka exporter image registry
@@ -1882,7 +1882,7 @@ metrics:
   jmx:
     ## @param metrics.jmx.enabled Whether or not to expose JMX metrics to Prometheus
     ##
-    enabled: false
+    enabled: true
     ## @param metrics.jmx.kafkaJmxPort JMX port where the exporter will collect metrics, exposed in the Kafka container.
     ##
     kafkaJmxPort: 5555
@@ -1968,7 +1968,7 @@ metrics:
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/port: "{{ .Values.metrics.jmx.service.ports.metrics }}"
-        prometheus.io/path: "/"
+        prometheus.io/path: "/metrics"
     ## @param metrics.jmx.whitelistObjectNames Allows setting which JMX objects you want to expose to via JMX stats to JMX exporter
     ## Only whitelisted values will be exposed via JMX exporter. They must also be exposed via Rules. To expose all metrics
     ## (warning its crazy excessive and they aren't formatted in a prometheus style) (1) `whitelistObjectNames: []`
@@ -2012,10 +2012,10 @@ metrics:
   serviceMonitor:
     ## @param metrics.serviceMonitor.enabled if `true`, creates a Prometheus Operator ServiceMonitor (requires `metrics.kafka.enabled` or `metrics.jmx.enabled` to be `true`)
     ##
-    enabled: false
+    enabled: true
     ## @param metrics.serviceMonitor.namespace Namespace in which Prometheus is running
     ##
-    namespace: ""
+    namespace: "monitoring"
     ## @param metrics.serviceMonitor.interval Interval at which metrics should be scraped
     ## ref: https://github.com/coreos/prometheus-operator/blob/master/Documentation/api.md#endpoint
     ##
@@ -2026,7 +2026,8 @@ metrics:
     scrapeTimeout: ""
     ## @param metrics.serviceMonitor.labels Additional labels that can be used so ServiceMonitor will be discovered by Prometheus
     ##
-    labels: {}
+    labels:
+      release: kube-prometheus-stack
     ## @param metrics.serviceMonitor.selector Prometheus instance selector labels
     ## ref: https://github.com/bitnami/charts/tree/main/bitnami/prometheus-operator#prometheus-configuration
     ##
@@ -2047,10 +2048,10 @@ metrics:
   prometheusRule:
     ## @param metrics.prometheusRule.enabled if `true`, creates a Prometheus Operator PrometheusRule (requires `metrics.kafka.enabled` or `metrics.jmx.enabled` to be `true`)
     ##
-    enabled: false
+    enabled: true
     ## @param metrics.prometheusRule.namespace Namespace in which Prometheus is running
     ##
-    namespace: ""
+    namespace: "monitoring"
     ## @param metrics.prometheusRule.labels Additional labels that can be used so PrometheusRule will be discovered by Prometheus
     ##
     labels: {}
