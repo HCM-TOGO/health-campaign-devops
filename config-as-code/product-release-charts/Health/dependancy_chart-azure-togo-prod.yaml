@@ -42,7 +42,7 @@ modules:
       - egovio/service-request:v1.0.1-a0e714254c-18
       - egovio/pgr-services:v1.1.7-00a7accbda-19
       - egovio/playground:1.0
-      - egovio/audit-service:audit-heatlh-40b1a4018a-11
+      - egovio/audit-service:DIGIT-2.9-LTS-07f47790b8-12
       - egovio/error-handler:master-impel-dump-5022b7acff-1
       - egovio/boundary-service:boundary-hierarchy-def-modified-2.9-lts-629baf086b-15
   - name: business
