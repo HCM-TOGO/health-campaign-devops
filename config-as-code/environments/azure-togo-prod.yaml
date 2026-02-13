@@ -622,8 +622,8 @@ oauth2-proxy:
   config:
     configFile: |-
       email_domains = [ "*" ]
-      github_org = "HCM-togo"
-      github_team = "hcm-moz-impl"
+      github_org = "HCM-SOLINA-KANO"
+      github_team = "azure-kafka-ui-access"
       upstreams = [ "file:///dev/null" ]
 
 grafana:
