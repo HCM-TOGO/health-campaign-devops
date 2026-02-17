@@ -188,3 +188,67 @@ env: |
   {{- end }}
   - name: EGOV_USER_PWD_PATTERN
     value: ((?=.*\d)(?=.*[a-z])(?=.*[@#$%])(?=\S+$).*$)
+  - name: STATE_SCHEMA_INDEX_POSITION_TENANTID
+    value: "1"
+  - name: LOGGING_LEVEL_WEB
+    value: DEBUG
+  - name: LOGGING_LEVEL_WEB
+    value: DEBUG
+  - name: LOGGING_LEVEL_ORG_EGOV_USER
+    value: DEBUG
+  - name: LOGGING_LEVEL_ORG_EGOV_USER
+    value: DEBUG
+  - name: LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_WEB
+    value: DEBUG
+  - name: LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_WEB
+    value: DEBUG
+  - name: LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_SECURITY
+    value: DEBUG
+  - name: LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_SECURITY
+    value: DEBUG
+  - name: IS_ENVIRONMENT_CENTRAL_INSTANCE
+    value: "false"
+  - name: AUTH_OIDC_PROVIDERS_SOURCE
+    value: mdms
+  - name: JAVA_TOOL_OPTIONS
+    value: -Djava.net.preferIPv4Stack=true -Djdk.httpclient.allowRestrictedHeaders=host
+      -Dhttps.protocols=TLSv1.2
+  - name: JAVA_TOOL_OPTIONS
+    value: -Djava.net.preferIPv4Stack=true -Djdk.httpclient.allowRestrictedHeaders=host
+      -Dhttps.protocols=TLSv1.2
+  - name: EGOV_HRMS_HOST
+    valueFrom:
+      configMapKeyRef:
+        key: egov-hrms
+        name: egov-service-host
+  - name: EGOV_HRMS_HOST
+    valueFrom:
+      configMapKeyRef:
+        key: egov-hrms
+        name: egov-service-host
+  - name: EGOV_HRMS_EMPLOYEE_CREATE_URL
+    value: /egov-hrms/employees/_create
+  - name: EGOV_HRMS_EMPLOYEE_CREATE_URL
+    value: /egov-hrms/employees/_create
+  - name: EGOV_PROJECT_HOST
+    valueFrom:
+      configMapKeyRef:
+        key: project
+        name: egov-service-host
+  - name: EGOV_PROJECT_HOST
+    valueFrom:
+      configMapKeyRef:
+        key: project
+        name: egov-service-host
+  - name: EGOV_PROJECT_SEARCH_URL
+    value: /project/v1/_search
+  - name: EGOV_PROJECT_SEARCH_URL
+    value: /project/v1/_search
+  - name: EGOV_PROJECT_STAFF_CREATE_URL
+    value: /project/staff/v1/_create
+  - name: EGOV_PROJECT_STAFF_CREATE_URL
+    value: /project/staff/v1/_create
+  - name: MDMS_OIDCPROVIDERS_TENANTID
+    value: tg
+  - name: AUTH_OIDC_ENABLED
+    value: "true"
