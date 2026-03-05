@@ -154,3 +154,8 @@ cluster-configs:
     jupyter:
       namespace: jupyter
       name: jupyter
+
+    sso:
+      namespace: egov
+      name: sso
+
