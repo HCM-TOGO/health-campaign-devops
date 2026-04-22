@@ -103,6 +103,7 @@ module "kubernetes" {
   node_count                = 4
   network_security_group_id = azurerm_network_security_group.aks_nsg.id
   subnet_id                 = azurerm_subnet.aks.id
+  kubernetes_version        = var.kubernetes_version
 }
 
 module "postgres-db" {

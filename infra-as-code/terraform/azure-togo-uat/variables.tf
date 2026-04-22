@@ -18,6 +18,11 @@ variable "db_user" {
 }
 
 variable "db_password"{}
+
+variable "kubernetes_version"{
+  default = "1.33"
+}
+
 variable "subscription_id" {
   description = "The Subscription ID for Azure"
   type        = string
