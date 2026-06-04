@@ -69,6 +69,7 @@ serverBasePath: /kibana-upgrade
 # such as kibana.yml
 kibanaConfig:
    kibana.yml: |
+     i18n.locale: "fr-FR"
      xpack.security.authc.providers:
        basic.basic1:
          order: 0
