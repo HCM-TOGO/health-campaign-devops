@@ -10,3 +10,4 @@ variable "ssh_public_key" {}
 variable "network_security_group_id"{}
 variable "subnet_id"{}
 variable "subnet_id_new"{}
+variable "kubernetes_version" {}

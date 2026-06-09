@@ -117,10 +117,11 @@ module "kubernetes" {
   client_secret             = var.client_secret
   vm_size                   = "Standard_B4ms"
   ssh_public_key            = var.environment
-  node_count                = 8
+  node_count                = 1
   network_security_group_id = azurerm_network_security_group.aks_nsg.id
   subnet_id                 = azurerm_subnet.aks.id
   subnet_id_new             = azurerm_subnet.aks2.id
+  kubernetes_version        = var.kubernetes_version
 }
 
 module "postgres-db" {
