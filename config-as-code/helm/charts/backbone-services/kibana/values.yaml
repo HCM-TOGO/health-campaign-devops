@@ -69,6 +69,7 @@ serverBasePath: /kibana-upgrade
 # such as kibana.yml
 kibanaConfig:
    kibana.yml: |
+     server.maxPayloadBytes: 2097152
      xpack.security.authc.providers:
        basic.basic1:
          order: 0
@@ -159,6 +160,7 @@ ingress:
     nginx.ingress.kubernetes.io/lua-resty-waf-process-multipart-body: "false"
     nginx.ingress.kubernetes.io/lua-resty-waf-score-threshold: "10"
     nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/proxy-body-size: 2m
   hosts:
     - host: alafiatogo-hcm.digit.org
       paths:
